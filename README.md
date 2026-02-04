@@ -107,7 +107,7 @@ Roadmap: * [ ] Add Reranking (e.g., Cohere) for better precision.
 
 [ ] Evaluation framework using RAGAS.
 
-👤 Author
+## 👤 Author
 JVN Ganesh
 
 GitHub: @jvnganesh
