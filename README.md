@@ -60,25 +60,33 @@ rag-pdf-chatbot/
 ▶️ Getting Started
 1. Clone the Repository
 Bash
+```text
 git clone [https://github.com/jvnganesh/rag-pdf-chatbot.git](https://github.com/jvnganesh/rag-pdf-chatbot.git)
 cd rag-pdf-chatbot
-2. Install Dependencies
-Bash
+```
+3. Install Dependencies
+```text
 pip install -r requirements.txt
-3. Configure Environment Variables
+```
+4. Configure Environment Variables
 Set your OpenAI API Key in your terminal environment:
 
 macOS / Linux:
 
 Bash
+```text
 export OPENAI_API_KEY="your_api_key_here"
 Windows (PowerShell):
-
+```
 PowerShell
+```text
 $env:OPENAI_API_KEY="your_api_key_here"
+```
 4. Run the App
 Bash
+```text
 streamlit run app.py
+```
 🧪 Debugging & Optimization
 The built-in Debug Panel allows you to peek under the hood:
 
