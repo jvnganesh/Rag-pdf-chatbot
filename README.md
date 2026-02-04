@@ -87,7 +87,7 @@ Bash
 ```text
 streamlit run app.py
 ```
-🧪 Debugging & Optimization
+## 🧪 Debugging & Optimization
 The built-in Debug Panel allows you to peek under the hood:
 
 Similarity Distances: See how closely the retrieved text matches the query.
@@ -96,7 +96,7 @@ Context Inspection: View exactly what information was passed to the LLM.
 
 Refinement: Use these insights to adjust chunk sizes or retrieval top-k settings.
 
-⚠️ Limitations & Future Roadmap
+## ⚠️ Limitations & Future Roadmap
 Current Limit: Does not support scanned/image-based PDFs (requires OCR).
 
 Roadmap: * [ ] Add Reranking (e.g., Cohere) for better precision.
