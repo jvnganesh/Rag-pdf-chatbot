@@ -1,83 +1,144 @@
-# 📄 RAG-based PDF Chatbot
+📄 RAG-Based PDF Chatbot
 
-A Retrieval-Augmented Generation (RAG) chatbot that allows users to upload PDFs and ask questions grounded in document content.
+A Retrieval-Augmented Generation (RAG) chatbot that allows users to upload PDF documents and ask questions grounded strictly in the document content.
 
-Built using OpenAI embeddings, FAISS vector search, and a Streamlit UI with explainable citations and conversation-aware retrieval.
+Built using OpenAI embeddings, FAISS vector search, and a Streamlit interface with citations, debugging tools, and conversation-aware retrieval.
 
----
+🚀 Features
 
-## 🚀 Features
+📄 Upload and ingest PDF documents
 
-- 📄 Upload and ingest PDF documents
-- 🔍 Semantic search using embeddings + FAISS
-- 💬 Chat-style interface (Streamlit)
-- 📌 Inline citations for grounded answers
-- 🧪 Debug panel to inspect retrieved chunks
-- 🧠 Conversation-aware retrieval (memory)
+🔍 Semantic search using vector embeddings
 
----
+💬 Chat-style UI built with Streamlit
 
-## 🧠 How It Works (RAG Pipeline)
+📌 Inline citations for every factual answer
 
-PDF → Text Extraction → Chunking → Embeddings → FAISS
-↓
-User Query → Embedding → Retrieval → LLM Answer
+🧪 Debug panel to inspect retrieved chunks and similarity scores
+
+🧠 Conversation-aware retrieval (chat memory)
+
+⚡ Fast local vector search using FAISS
+
+🧠 How It Works (RAG Pipeline)
+PDF → Text Extraction → Chunking → Embeddings → FAISS Vector Store
+                                             ↓
+User Query → Embedding → Similarity Search → Context → LLM Answer
+
+Why RAG?
+
+Prevents hallucinations
+
+Keeps answers grounded in source documents
+
+Allows dynamic, up-to-date knowledge without fine-tuning
+
+🛠 Tech Stack
+
+Language: Python
+
+LLM API: OpenAI
+
+Embeddings: text-embedding-3-small
+
+Vector Store: FAISS
+
+UI: Streamlit
+
+PDF Parsing: PyPDF
+
+📁 Project Structure
+rag-pdf-chatbot/
+│── app.py                 # Streamlit application
+│── requirements.txt       # Dependencies
+│── README.md
+│── .gitignore
+│── data/
+│   └── pdfs/              # (Optional) PDF storage
 
 
----
+⚠️ Vector index files (faiss.index, chunks.npy) are generated at runtime and are not committed.
 
-## 🛠 Tech Stack
-
-- Python
-- OpenAI API
-- FAISS
-- Streamlit
-- PyPDF
-
----
-
-## ▶️ How to Run Locally
-
-### 1️⃣ Clone the repo
-```bash
-git clone https://github.com/your-username/rag-pdf-chatbot.git
+▶️ Running the Project Locally
+1️⃣ Clone the repository
+git clone https://github.com/jvnganesh/rag-pdf-chatbot.git
 cd rag-pdf-chatbot
 
 2️⃣ Install dependencies
 pip install -r requirements.txt
 
 3️⃣ Set OpenAI API Key
-export OPENAI_API_KEY="your_key_here"
-# or on Windows:
-setx OPENAI_API_KEY "your_key_here"
 
-4️⃣ Run the app
+Linux / macOS
+
+export OPENAI_API_KEY="your_api_key_here"
+
+
+Windows (PowerShell)
+
+setx OPENAI_API_KEY "your_api_key_here"
+
+
+Restart the terminal after setting the key.
+
+4️⃣ Run the application
 streamlit run app.py
 
-📄 Usage
+📄 Usage Instructions
 
-Upload one or more PDFs
+Upload one or more text-based PDFs
 
-Click Process PDFs
+Click “Process PDFs” to ingest documents
 
-Ask questions related to the documents
+Ask questions related to the uploaded content
 
-View answers with citations
+View answers with inline citations
 
-⚠️ Notes
+Enable Debug Panel to inspect retrieved chunks
 
-Scanned PDFs are not supported (OCR not included yet)
+🧪 Debug Panel
 
-Vector index is rebuilt on every ingestion
+The debug panel shows:
 
-API key must be set as an environment variable
+Retrieved document chunks
+
+Similarity distances
+
+Context used by the LLM
+
+This helps with:
+
+Understanding retrieval behavior
+
+Debugging hallucinations
+
+Improving chunking and retrieval strategies
+
+⚠️ Limitations
+
+Scanned PDFs are not supported (OCR not included)
+
+Vector index is rebuilt on each ingestion
+
+Designed for local / demo usage (not production-scale yet)
 
 📌 Future Improvements
 
-Reranking for better retrieval
+Reranking for higher retrieval accuracy
 
-Evaluation metrics
+Evaluation metrics for RAG performance
 
-OCR for scanned PDFs
+OCR support for scanned PDFs
 
-Production deployment (FastAPI)
+Production deployment using FastAPI
+
+Persistent vector storage
+
+📜 License
+
+MIT License
+
+👤 Author
+
+JVN Ganesh
+GitHub: https://github.com/jvnganesh
